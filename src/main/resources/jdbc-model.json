@@ -1,0 +1,488 @@
+{
+    "enumDefs": [],
+    "structDefs": [],
+    "classificationDefs": [],
+    "entityDefs": [
+        {
+            "name": "jdbc_instance",
+            "description": "Instance that the jdbc datasource",
+            "superTypes": ["DataSet"],
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "attributeDefs": [
+                {
+                    "name": "url",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "productName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "productVersion",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "driverName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "driverVersion",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                }
+            ]
+        },
+        {
+            "name": "jdbc_db",
+            "description": "a database (schema) in an jdbc",
+            "superTypes": ["DataSet"],
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "attributeDefs": [
+                {
+                    "name": "catalogName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "schemaName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                }
+            ]
+        },
+        {
+            "name": "jdbc_table",
+            "description": "a table in an jdbc database (schema)",
+            "superTypes": ["DataSet"],
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "options": {
+              "schemaElementsAttribute": "columns"
+            },
+            "attributeDefs": [
+                {
+                    "name": "tableName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "tableType",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "comment",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "createTime",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "updateTime",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                }
+            ]
+        },
+        {
+            "name": "jdbc_column",
+            "description": "a column in an jdbc table",
+            "superTypes": ["DataSet"],
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "options": {
+              "schemaAttributes": "[\"name\", \"description\", \"owner\", \"data_type\", \"comment\", \" isPrimaryKey\", \" isNullable\"]"
+            },
+            "attributeDefs": [
+                {
+                    "name": "columnName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": true
+                },
+                {
+                    "name": "comment",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "columnType",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "defaultValue",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "isNullable",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "autoIncrement",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                }
+            ]
+        },
+        {
+            "name": "jdbc_index",
+            "description": "An index on an jdbc table",
+            "superTypes": ["DataSet"],
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "attributeDefs": [
+                {
+                    "name": "indexType",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "isUnique",
+                    "typeName": "boolean",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                }
+            ]
+        },
+        {
+            "name": "jdbc_foreign_key",
+            "description": "foreign_key",
+            "superTypes": ["DataSet"],
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "attributeDefs": [
+                {
+                    "name": "pkName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "pkTableName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "pkColumnName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "fkName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "fkTableName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "fkColumnName",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "updateRule",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                },
+                {
+                    "name": "deleteRule",
+                    "typeName": "string",
+                    "isOptional": true,
+                    "cardinality": "SINGLE",
+                    "isUnique": false,
+                    "isIndexable": false
+                }
+            ]
+        }
+    ],
+    "relationshipDefs": [
+        {
+            "name": "jdbc_instance_databases",
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "relationshipCategory": "COMPOSITION",
+            "relationshipLabel":    "__jdbc_instance.databases",
+            "endDef1": {
+                "type": "jdbc_instance",
+                "name": "databases",
+                "isContainer": true,
+                "cardinality": "SET",
+                "isLegacyAttribute": true
+            },
+            "endDef2": {
+                "type": "jdbc_db",
+                "name": "instance",
+                "isContainer": false,
+                "cardinality": "SINGLE",
+                "isLegacyAttribute": true
+            },
+            "propagateTags": "NONE"
+        },
+        {
+            "name": "jdbc_db_tables",
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "relationshipCategory": "COMPOSITION",
+            "relationshipLabel":    "__jdbc_db.tables",
+            "endDef1": {
+                "type": "jdbc_db",
+                "name": "tables",
+                "isContainer": true,
+                "cardinality": "SET",
+                "isLegacyAttribute": true
+            },
+            "endDef2": {
+                "type": "jdbc_table",
+                "name": "database",
+                "isContainer": false,
+                "cardinality": "SINGLE",
+                "isLegacyAttribute": true
+            },
+            "propagateTags": "NONE"
+        },
+        {
+            "name": "jdbc_table_columns",
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "relationshipCategory": "COMPOSITION",
+            "relationshipLabel":    "__jdbc_table.columns",
+            "endDef1": {
+                "type": "jdbc_table",
+                "name": "columns",
+                "isContainer": true,
+                "cardinality": "SET",
+                "isLegacyAttribute": true
+            },
+            "endDef2": {
+                "type": "jdbc_column",
+                "name": "table",
+                "isContainer": false,
+                "cardinality": "SINGLE",
+                "isLegacyAttribute": true
+            },
+            "propagateTags": "NONE"
+        },
+        {
+            "name": "jdbc_table_indexes",
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "relationshipCategory": "COMPOSITION",
+            "relationshipLabel":    "__jdbc_table.indexes",
+            "endDef1": {
+                "type": "jdbc_table",
+                "name": "indexes",
+                "isContainer": true,
+                "cardinality": "SET",
+                "isLegacyAttribute": true
+            },
+            "endDef2": {
+                "type": "jdbc_index",
+                "name": "table",
+                "isContainer": false,
+                "cardinality": "SINGLE",
+                "isLegacyAttribute": true
+            },
+            "propagateTags": "NONE"
+        },
+        {
+            "name": "jdbc_index_columns",
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "relationshipCategory": "ASSOCIATION",
+            "relationshipLabel": "__jdbc_index.columns",
+            "endDef1": {
+                "type": "jdbc_index",
+                "name": "columns",
+                "isContainer": false,
+                "cardinality": "SET",
+                "isLegacyAttribute": true
+            },
+            "endDef2": {
+                "type": "jdbc_column",
+                "name": "indexes",
+                "isContainer": false,
+                "cardinality": "SET",
+                "isLegacyAttribute": true
+            },
+            "propagateTags": "NONE"
+        },
+        {
+            "name": "jdbc_table_foreign_key",
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "relationshipCategory": "COMPOSITION",
+            "relationshipLabel":    "__jdbc_table.foreign_keys",
+            "endDef1": {
+                "type": "jdbc_table",
+                "name": "foreignKeys",
+                "isContainer": true,
+                "cardinality": "SET",
+                "isLegacyAttribute": true
+            },
+            "endDef2": {
+                "type": "jdbc_foreign_key",
+                "name": "table",
+                "isContainer": false,
+                "cardinality": "SINGLE",
+                "isLegacyAttribute": true
+            },
+            "propagateTags": "NONE"
+        },
+        {
+            "name": "jdbc_foreign_key_key_columns",
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "relationshipCategory": "ASSOCIATION",
+            "relationshipLabel": "__jdbc_foreign_key.key_columns",
+            "endDef1": {
+                "type": "jdbc_foreign_key",
+                "name": "key_columns",
+                "isContainer": false,
+                "cardinality": "SET",
+                "isLegacyAttribute": true
+            },
+            "endDef2": {
+                "type": "jdbc_column",
+                "name": "key_column_references",
+                "isContainer": false,
+                "cardinality": "SET"
+            },
+            "propagateTags": "NONE"
+        },
+        {
+            "name": "jdbc_foreign_key_table_references",
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "relationshipCategory": "ASSOCIATION",
+            "relationshipLabel": "__jdbc_foreign_key.references_table",
+            "endDef1": {
+                "type": "jdbc_foreign_key",
+                "name": "references_table",
+                "isContainer": false,
+                "cardinality": "SINGLE",
+                "isLegacyAttribute": true
+            },
+            "endDef2": {
+                "type": "jdbc_table",
+                "name": "foreign_key_references",
+                "isContainer": false,
+                "cardinality": "SET"
+            },
+            "propagateTags": "NONE"
+        },
+        {
+            "name": "jdbc_foreign_key_column_references",
+            "serviceType": "jdbc",
+            "typeVersion": "1.0",
+            "relationshipCategory": "ASSOCIATION",
+            "relationshipLabel": "__jdbc_foreign_key.references_columns",
+            "endDef1": {
+                "type": "jdbc_foreign_key",
+                "name": "references_columns",
+                "isContainer": false,
+                "cardinality": "SET",
+                "isLegacyAttribute": true
+            },
+            "endDef2": {
+                "type": "jdbc_column",
+                "name": "foreign_key_references",
+                "isContainer": false,
+                "cardinality": "SET"
+            },
+            "propagateTags": "NONE"
+        }
+    ]
+}
